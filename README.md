@@ -6,10 +6,16 @@
 
 ## Usage
 
+`goodbye_chatwork` は改変したものを使う（submoduleで入ってる）
+
 ```sh
+git submodule init && git submodule update
 mkdir ./exports
 mkdir ./converted
-goodbye_chatwork -i example@example.com -p your_password -d ./exports -x room_id
+cd ./goodbye_chatwork
+bundle install --path vendor/bundler
+./bin/goodbye_chatwork -i example@example.com -p your_password -d ../exports -x room_id
+cd ../
 vi ./cw_users.json
 node ./index.js
 ```
