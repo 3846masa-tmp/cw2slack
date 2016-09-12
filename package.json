@@ -1,0 +1,26 @@
+{
+  "name": "chatwork2slack",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "3846masa",
+  "license": "WTFPL",
+  "dependencies": {
+    "bbcode-parser": "1.0.10",
+    "csv": "1.1.0",
+    "fs-promise": "0.5.0",
+    "glob": "7.0.6",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.escaperegexp": "4.1.2",
+    "moment": "2.14.1",
+    "pify": "2.3.0",
+    "rx-node": "1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "3.5.0"
+  },
+  "description": ""
+}
