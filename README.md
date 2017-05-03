@@ -1,5 +1,7 @@
 # Chatwork to Slack
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/3846masa/cw2slack.svg)](https://greenkeeper.io/)
+
 ![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)
 
 雑に作ったしメンテもする気ない
