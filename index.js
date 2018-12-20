@@ -9,9 +9,11 @@ const ChatWorkToSlack = require('./chatwork-to-slack');
 const cwUsers = require('./cw_users');
 const cwUserNameMap = {};
 const cwUserAccountMap = {};
+const cwUserNameAccountMap = {};
 cwUsers.forEach((user) => {
   cwUserNameMap[ user.id ] = user.name;
   cwUserAccountMap[ user.id ] = user.account.toLowerCase();
+  cwUserNameAccountMap[ user.name ] = user.account.toLowerCase();
 });
 
 const converter = new ChatWorkToSlack(cwUserNameMap, cwUserAccountMap);
@@ -19,7 +21,7 @@ const converter = new ChatWorkToSlack(cwUserNameMap, cwUserAccountMap);
 const parseCSV = (data) => {
   return pify(parse)(data, {
     columns: [
-      'timestamp', 'name', 'account', 'id', 'message'
+      'timestamp', 'name', 'message'
     ]
   });
 };
@@ -39,7 +41,7 @@ glob('./exports/*.csv')
             .map((chat) => {
               chat.message = converter.convert(chat.message);
               chat.timestamp = Number(new Date(chat.timestamp)) / 1000;
-              chat.account = cwUserAccountMap[chat.id] || `cw_${chat.id}`;
+              chat.account = cwUserNameAccountMap[chat.name] || `cw_${chat.name}`;
               return chat;
             })
             .filter((chat) => chat.message);
